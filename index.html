@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Tarefas</title>
+
+<style>
+* {
+   margin: 0%;
+   border: 0%;
+   box-sizing: border-box;
+}
+
+h1{
+   border-radius: 20px;
+   border-color: crimson;
+
+}
+
+
+</style>
+
+</head>
+<body>
+    <h1>Minha Lista de Tarefas</h1>
+    <ul id="lista-tarefas"></ul>
+<input id="nova-tarefa">
+<button onclick="adicionar()">Adicionar</button>
+<script>
+    //estado da aplicação
+    const tarefa = []
+    tarefa.push("Estudar Html")
+    tarefa.push("Estudar Css")
+    tarefa.push("Estudar Java Script")
+    tarefa.push("Terminar o Contador")
+    tarefa.push("Atualizar a Lista de Tarefas")
+    function adicionar() {
+    const input = document.querySelector("#nova-tarefa");
+    const tarefa = input.value;
+    input.value = "";
+        }
+function render() {
+    const ul = document.querySelector("#lista-tarefas");  
+}   tarefa.forEach(function(tarefa))
+    console.log(tarefa)
+    
+    //const li = document.createElement("li");
+    //li.textContent = tarefa;
+    //ul.appendChild(li);
+
+</script>
+</body>
+</html>
