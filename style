@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de Tarefas</title>
 
-<style>
 * {
     box-sizing: border-box;
     margin: 0;
@@ -95,6 +88,38 @@ footer button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+footer button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #a77afd;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+footer button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #b026d3;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+footer button:hover {
+    color: #b026d3;
+}
+
+footer button:hover::before {
+    opacity: 1;
+}
 
 footer button:hover {
     background-color: #b026d3;
@@ -106,51 +131,3 @@ h1 {
     padding: 20px 0;
     font-style: oblique;
 }
-</style>
-
-</head>
-<body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-    </header>
-    <main>
-        <ul id="lista-tarefas"></ul>
-    </main>
-    <footer>
-        <input id="nova-tarefa">
-        <button onclick="adicionar()">Adicionar</button>
-    </footer>
-
-<script>
-    const listaDeTarefas = [
-        "Estudar Html",
-        "Estudar Css",
-        "Estudar Java Script",
-        "Terminar o Contador",
-        "Atualizar a Lista de Tarefas"
-    ];
-
-    function adicionar() {
-        const input = document.getElementById("nova-tarefa");
-        const novaTarefa = input.value.trim();
-        if (novaTarefa !== "") {
-            listaDeTarefas.push(novaTarefa);
-            input.value = "";
-            renderizar();
-        }
-    }
-
-    function renderizar() {
-        const ul = document.getElementById("lista-tarefas");
-        ul.innerHTML = "";
-        listaDeTarefas.forEach(function(tarefa) {
-            const li = document.createElement("li");
-            li.textContent = tarefa;
-            ul.appendChild(li);
-        });
-    }
-
-    renderizar();
-</script>
-</body>
-</html>
