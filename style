@@ -1,118 +1,208 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa Manager</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-body {
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    background: radial-gradient(circle, #76f9d0, #500064);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-header {
-    color: rgb(255, 255, 255);
-    font-size: 24px;
-    border-bottom: 1px solid #76f9d0;
-    box-shadow: 0px 2px 4px rgba(176, 38, 211, 0.5);
-    padding: 10px 20px;
-    margin-bottom: 20px;
-}
-
-main {
-    flex: 1;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 30px;
-    color: rgba(4, 101, 101, 0.734);
-    padding: 10px 20px;
-    margin-bottom: 20px;
-}
-
-main ul {
-    padding: 0;
-    list-style-type: none;
-}
-
-main li {
-    padding: 10px;
-    background-color: #a77afd;
-    border-bottom: 1px solid rgb(0, 74, 134);
-    margin-bottom: 5px;
-    border-radius: 5px;
-    border-style: dashed;
-    border-color: #b026d3;
-    color: aliceblue;
-    font-style: oblique;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-main li:hover {
-    background-color: #d4b0ff;
-    transform: scale(1.05);
-}
-
-footer {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    padding: 10px 20px;
-    background: radial-gradient(circle, #7b25fc, #56eaf5);
-    border: 2px dashed rgb(186, 59, 249);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-footer:hover {
-    background-color: #56eaf5;
-    transform: scale(1.02);
-}
-
-footer input {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-footer button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: #a77afd;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-footer button:hover {
-    background-color: #b026d3;
-    transform: scale(1.1);
-}
-
-h1 {
-    font-size: 30px;
-    padding: 20px 0;
-    font-style: oblique;
-}
-
-@media (max-width: 600px) {
     body {
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        background: radial-gradient(circle, #76f9d0, #500064);
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    header {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        border-bottom: 1px solid #76f9d0;
+        box-shadow: 0px 2px 4px rgba(176, 38, 211, 0.5);
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    main {
+        flex: 1;
+        width: 100%;
+        max-width: 600px;
+        border-radius: 30px;
+        color: rgba(4, 101, 101, 0.734);
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    main ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    main li {
         padding: 10px;
+        background-color: #a77afd;
+        border-bottom: 1px solid rgb(0, 74, 134);
+        margin-bottom: 5px;
+        border-radius: 5px;
+        border-style: dashed;
+        border-color: #b026d3;
+        color: aliceblue;
+        font-style: oblique;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    main li:hover {
+        background-color: #d4b0ff;
+        transform: scale(1.05);
+    }
+
+    .delete-button {
+        background-color: #4b0082; /* Roxo escuro */
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .delete-button:hover {
+        background-color: #301b70; /* Um tom mais escuro de roxo */
+        transform: scale(1.1);
     }
 
     footer {
-        flex-direction: column;
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        padding: 10px 20px;
+        background: radial-gradient(circle, #7b25fc, #56eaf5);
+        border: 2px dashed rgb(186, 59, 249);
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    footer input,
-    footer button {
-        width: 100%;
-        margin: 5px 0;
+    footer:hover {
+        background-color: #56eaf5;
+        transform: scale(1.02);
     }
-}
+
+    footer input {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    footer button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #a77afd;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    footer button:hover {
+        background-color: #b026d3;
+        transform: scale(1.1);
+    }
+
+    h1 {
+        font-size: 30px;
+        padding: 20px 0;
+        font-style: oblique;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        footer {
+            flex-direction: column;
+        }
+
+        footer input,
+        footer button {
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <h1>Tarefa Manager</h1>
+    <input id="nova-tarefa" type="text" placeholder="Digite uma tarefa...">
+    <button id="add-button">Adicionar</button>
+    <ul id="lista-tarefas"></ul>
+
+    <script>
+        class TarefaManager {
+            constructor() {
+                this.listaDeTarefas = JSON.parse(localStorage.getItem('listaDeTarefas') || '[]');
+            }
+
+            adicionarTarefa(tarefa) {
+                if (tarefa.trim() !== "") {
+                    this.listaDeTarefas.push(tarefa);
+                    this.salvarListaDeTarefas();
+                    this.renderizar();
+                }
+            }
+
+            removerTarefa(indice) {
+                this.listaDeTarefas.splice(indice, 1);
+                this.salvarListaDeTarefas();
+                this.renderizar();
+            }
+
+            salvarListaDeTarefas() {
+                localStorage.setItem('listaDeTarefas', JSON.stringify(this.listaDeTarefas));
+            }
+
+            renderizar() {
+                const ul = document.getElementById("lista-tarefas");
+                ul.innerHTML = "";
+                this.listaDeTarefas.forEach((tarefa, indice) => {
+                    const li = document.createElement("li");
+                    li.textContent = tarefa;
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Apagar";
+                    deleteButton.className = "delete-button";
+                    deleteButton.onclick = () => this.removerTarefa(indice);
+
+                    li.appendChild(deleteButton);
+                    ul.appendChild(li);
+                });
+            }
+        }
+
+        const tarefaManager = new TarefaManager();
+
+        document.getElementById("add-button").addEventListener("click", () => {
+            const input = document.getElementById("nova-tarefa");
+            const novaTarefa = input.value.trim();
+            if (novaTarefa !== "") {
+                tarefaManager.adicionarTarefa(novaTarefa);
+                input.value = "";
+            }
+        });
+
+        tarefaManager.renderizar();
+    </script>
+</body>
+</html>
