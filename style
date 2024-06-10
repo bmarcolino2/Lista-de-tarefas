@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarefa Manager</title>
-    <style>
-    * {
+<style> * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -141,68 +134,4 @@
             margin: 5px 0;
         }
     }
-</style>
-</head>
-<body>
-    <h1>Tarefa Manager</h1>
-    <input id="nova-tarefa" type="text" placeholder="Digite uma tarefa...">
-    <button id="add-button">Adicionar</button>
-    <ul id="lista-tarefas"></ul>
-
-    <script>
-        class TarefaManager {
-            constructor() {
-                this.listaDeTarefas = JSON.parse(localStorage.getItem('listaDeTarefas') || '[]');
-            }
-
-            adicionarTarefa(tarefa) {
-                if (tarefa.trim() !== "") {
-                    this.listaDeTarefas.push(tarefa);
-                    this.salvarListaDeTarefas();
-                    this.renderizar();
-                }
-            }
-
-            removerTarefa(indice) {
-                this.listaDeTarefas.splice(indice, 1);
-                this.salvarListaDeTarefas();
-                this.renderizar();
-            }
-
-            salvarListaDeTarefas() {
-                localStorage.setItem('listaDeTarefas', JSON.stringify(this.listaDeTarefas));
-            }
-
-            renderizar() {
-                const ul = document.getElementById("lista-tarefas");
-                ul.innerHTML = "";
-                this.listaDeTarefas.forEach((tarefa, indice) => {
-                    const li = document.createElement("li");
-                    li.textContent = tarefa;
-
-                    const deleteButton = document.createElement("button");
-                    deleteButton.textContent = "Apagar";
-                    deleteButton.className = "delete-button";
-                    deleteButton.onclick = () => this.removerTarefa(indice);
-
-                    li.appendChild(deleteButton);
-                    ul.appendChild(li);
-                });
-            }
-        }
-
-        const tarefaManager = new TarefaManager();
-
-        document.getElementById("add-button").addEventListener("click", () => {
-            const input = document.getElementById("nova-tarefa");
-            const novaTarefa = input.value.trim();
-            if (novaTarefa !== "") {
-                tarefaManager.adicionarTarefa(novaTarefa);
-                input.value = "";
-            }
-        });
-
-        tarefaManager.renderizar();
-    </script>
-</body>
-</html>
+    </style>
